@@ -13,9 +13,12 @@
     if (isset($_REQUEST['usuario'])) {
         setcookie("user", $_REQUEST['usuario'], time() + 3600);
         setcookie("passw", $_REQUEST['pass'], time() + 3600);
-        setcookie("idiomaUsuario", $_REQUEST['idioma'], time() + 3600);
     }
-    if (!isset($_COOKIE["user"])) {
+    if (isset($_REQUEST['idioma'])) {
+        setcookie("idiomaUsuario", $_REQUEST['idioma'], time() + 3600);
+        $entrar = $_REQUEST['Entrar'];
+    }
+    if (!isset($_COOKIE["idiomaUsuario"])) {
     ?>
         <form action="#" method="post">
             <span>Idioma:</span>
@@ -23,19 +26,19 @@
                 <option value="en">English</option>
                 <option value="es">Español</option>
             </select>
-            <span>Login:</span>
+            <span>User:</span>
             <input type="text" name="usuario">
             <span>Password:</span>
             <input type="text" name="pass">
             <input type="submit" name="Enviar">
-            <input type="botton">
+            <input type="submit" name="Entrar" value="Entrar">
         </form>
     <?php
     } else {
         if ($_COOKIE['idiomaUsuario'] == "en")
-            header('Location: http://localhost/idiomasCookie/english.php');
+            header('Location: http://localhost/cookiesPHP/english.php');
         if ($_COOKIE["idiomaUsuario"] == "es") {
-            header('Location: http://localhost/idiomasCookie/spanish.php');
+            header('Location: http://localhost/cookiesPHP/spanish.php');
         }
     }
     ?>

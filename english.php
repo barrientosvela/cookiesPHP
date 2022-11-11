@@ -8,7 +8,6 @@
 </head>
 <body>
 <?php
-
     if (!isset($_COOKIE['user'])){
         print("<h1>Hello anonimo</h1>");
     }else{

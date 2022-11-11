@@ -7,8 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-    
+    <?php    
     if (!isset($_COOKIE['user'])){
         print("<h1>Hola anonimo</h1>");
     }else{
